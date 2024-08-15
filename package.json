@@ -59,6 +59,7 @@
     "vite-plugin-lib-inject-css": "^2.0.1"
   },
   "dependencies": {
+    "@ant-design/colors": "^7.1.0",
     "@mui/base": "^5.0.0-alpha.126",
     "@mui/icons-material": "^5.14.15",
     "@mui/lab": "^5.0.0-alpha.127",
