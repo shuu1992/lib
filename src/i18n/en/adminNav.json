@@ -1,0 +1,9 @@
+{
+  "sysLevel": "System Level",
+  "pname": "Parent Name",
+  "icon": "Icon",
+  "route": "Permission Code",
+  "sort": "Sort",
+  "url": "URL Path",
+  "action_log": "Action Log"
+}

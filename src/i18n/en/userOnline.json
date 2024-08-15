@@ -1,0 +1,8 @@
+{
+  "name": "Real Name",
+  "money": "Points",
+  "money_frozen": "Frozen",
+  "payoff": "Today's Winnings/Losses",
+  "created_at": "Registration Time",
+  "kick": "Kick Out"
+}

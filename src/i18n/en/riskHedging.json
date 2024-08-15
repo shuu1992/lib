@@ -1,0 +1,13 @@
+{
+  "room_id": "Room ID",
+  "game_no": "Game Number",
+  "betarea_id": "Bet Area ID",
+  "report_time": "Report Time",
+  "target_uid": "Target User ID",
+  "target_username": "Target Username",
+  "target_bet_real": "Target Bet Real",
+  "target_bet_total": "Target Bet Total",
+  "target_betarea_id": "Target Bet Area ID",
+  "target_report_time": "Target Report Time",
+  "target_ip": "Target IP"
+}

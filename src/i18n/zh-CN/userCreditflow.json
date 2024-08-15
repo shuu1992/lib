@@ -1,0 +1,8 @@
+{
+  "related_id": "关联ID",
+  "related_username": "关联代理",
+  "order_sn": "交易编号",
+  "credit_before": "异动前余额",
+  "credit_add": "异动金额",
+  "credit_after": "异动后余额"
+}

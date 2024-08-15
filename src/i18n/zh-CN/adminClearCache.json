@@ -1,0 +1,6 @@
+{
+  "name": "Name",
+  "redis": "Redis",
+  "notice": "清除快取",
+  "delMsg": "确认清除快取?"
+}

@@ -1,0 +1,12 @@
+{
+  "require": "{{key}} 必填",
+  "url": "請輸入 ex:https://www.google.com",
+  "limitWidth": "寬度不可超過 {{num}}",
+  "limitHeight": "高度不可超過 {{num}}",
+  "limitSize": "檔案大小不可超過 {{num}} MB",
+  "min": "最小值為 {{num}}",
+  "max": "最大值為 {{num}}",
+  "limitMin": "{{key}}不可小於{{minKey}}",
+  "invalidIp": "IP格式錯誤 ex:192.168.0",
+  "no_trailing_slash": "請勿輸入尾部斜線"
+}

@@ -1,0 +1,51 @@
+{
+  "dashboard": "公布栏",
+
+  "userFeature": "会员功能",
+  "userAgent": "代理列表",
+  "userOline": "在线会员",
+  "userMember": "会员列表",
+  "userMoneyflow": "会员帐变明细",
+  "userLoginLog": "会员登入日志",
+  "userCreditflow": "代理帐变明细",
+  "userGroup": "会员限红群组",
+
+  "rechargeFeature": "资金功能",
+  "rechargeDepRec": "充值纪录",
+
+  "gameFeature": "游戏管理",
+  "gameManage": "游戏管理",
+  "gameRoom": "房间管理",
+  "gameBet": "注区管理",
+  "gameBetRecord": "注单列表",
+  "gameDonate": "打赏列表",
+
+  "riskFeature": "风控功能",
+  "riskManage": "开奖号码",
+  "riskHedging": "对押查询",
+  "riskAnalysis": "玩家投注分析",
+
+  "reportFeature": "报表功能",
+  "reportOperation": "营运报表",
+  "reportAgent": "代理报表",
+  "reportUser": "会员报表",
+  "reportGame": "游戏报表",
+  "reportDonate": "打赏报表",
+
+  "chartFeature": "图表功能",
+  "chartOnline": "在线人数",
+
+  "siteFeature": "站台功能",
+  "siteConfig": "网站基本设置",
+  "siteNotice": "公告列表",
+  "siteBanner": "横幅广告",
+
+  "admin": "系统管理",
+  "adminNav": "导航列表",
+  "adminRole": "角色管理",
+  "adminUser": "管理员列表",
+  "adminActionLog": "管理员操作日志",
+  "adminLoginLog": "管理员登入日志",
+  "adminClearCahe": "清除快取",
+  "adminLanguage": "语系字串"
+}

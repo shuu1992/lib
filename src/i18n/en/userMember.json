@@ -1,0 +1,7 @@
+{
+  "agentPath": "Agent Path",
+  "agentDetail": "Agent Details",
+  "resetLoseMsg": "Reset current win/loss, are you sure you want to reset?",
+  "resetLoseSuc": "Reset successful",
+  "flag": "Automatic kick-out for no betting"
+}

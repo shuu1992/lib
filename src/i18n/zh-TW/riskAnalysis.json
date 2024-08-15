@@ -1,0 +1,18 @@
+{
+  "bet_total": "總投注金額",
+  "count": "總投注局數",
+  "game_rate": "同局比率",
+  "same_bet_total": "同局投注金額",
+  "same_count": "同局投注局數",
+  "total_rate": "同局金額比率",
+
+  "game_count": "總投注局數",
+  "bet_count": "總注單數",
+  "payoff": "總輸贏",
+  "betRatio": "注單比例",
+  "betAmountRatio": "投注金額比例",
+  "avgBet": "平均每注金額",
+  "winloseBet": "輸贏注單數",
+  "winloseBetAmout": "平均輸贏投注金額",
+  "payoffAmount": "輸贏金額"
+}

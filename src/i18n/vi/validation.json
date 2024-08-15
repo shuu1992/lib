@@ -1,0 +1,11 @@
+{
+  "require": "{{key}} Phải điền",
+  "url": "vui lòng nhập ex:/xxx",
+  "limitWidth": "Chiều rộng không thể vượt quá {{num}}",
+  "limitHeight": "Chiều cao không thể vượt quá {{num}}",
+  "limitSize": "Kích thước tập tin không được vượt quá {{num}} MB",
+  "min": "Giá trị nhỏ nhất là {{num}}",
+  "max": "Giá trị lớn nhất là {{num}}",
+  "limitMin": "{{key}}không thể nhỏ hơn{{minKey}}",
+  "no_trailing_slash": "Vui lòng không nhập dấu gạch chéo cuối cùng"
+}

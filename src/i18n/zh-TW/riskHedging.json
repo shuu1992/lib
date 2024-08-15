@@ -1,0 +1,13 @@
+{
+  "room_id": "遊戲房間",
+  "game_no": "遊戲編號",
+  "betarea_id": "注區",
+  "report_time": "時間",
+  "target_uid": "對打Uid",
+  "target_username": "對打帳號",
+  "target_bet_real": "對打金額",
+  "target_bet_total": "對打總額",
+  "target_betarea_id": "對打注區",
+  "target_report_time": "對打時間",
+  "target_ip": "對打IP"
+}

@@ -1,0 +1,8 @@
+{
+  "related_id": "關聯ID",
+  "related_username": "關聯代理",
+  "order_sn": "交易編號",
+  "credit_before": "異動前餘額",
+  "credit_add": "異動金額",
+  "credit_after": "異動後餘額"
+}

@@ -1,0 +1,10 @@
+{
+  "login": "登入",
+  "account": "帳號",
+  "plzInputAccount": "請輸入帳號",
+  "password": "密碼",
+  "plzInputPassword": "請輸入密碼",
+  "keepSignIn": "保持登入",
+  "signIn": "登入",
+  "lang": "語系"
+}
