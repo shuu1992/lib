@@ -42,7 +42,6 @@ export function SearchDateTimeRangePicker({
   sysTime: string;
 }) {
   const { t } = useTranslation();
-  const theme = useTheme();
 
   // const globalState = useSelector((state) => state.global);
   // const { sysTime } = globalState;
