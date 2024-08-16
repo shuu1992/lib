@@ -21,10 +21,10 @@ export default defineConfig({
         'react',
         'react-dom',
         '@mui/material',
-        '@mui/x-date-pickers/internals/demo',
-        '@mui/x-date-pickers/AdapterDayjs',
-        '@mui/x-date-pickers/LocalizationProvider',
-        '@mui/x-date-pickers/DatePicker',
+        '@mui/x-date-pickers/**/*.{ts,tsx,js}',
+        '@mui/x-date-pickers-pro/*.{ts,tsx,js}',
+        // '@mui/x-date-pickers/LocalizationProvider',
+        // '@mui/x-date-pickers/DatePicker',
       ],
       input: Object.fromEntries(
         // https://rollupjs.org/configuration-options/#input
