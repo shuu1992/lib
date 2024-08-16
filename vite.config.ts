@@ -17,7 +17,13 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: ['react', 'react-dom', '@mui/material', '@mui/x-date-pickers','@mui/x-date-pickers-pro'],
+      external: [
+        'react',
+        'react-dom',
+        '@mui/material',
+        '@mui/x-date-pickers',
+        '@mui/x-date-pickers-pro',
+      ],
       input: Object.fromEntries(
         // https://rollupjs.org/configuration-options/#input
         glob.sync('lib/**/*.{ts,tsx}').map((file) => [
