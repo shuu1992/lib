@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import i18n from '@i18n/index';
 import { getDateRange } from '@utils/date';
 // material-ue
-import { FormControl, Button } from '@mui/material';
+import { FormControl, Button, useTheme } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -42,7 +42,8 @@ export function SearchDateTimeRangePicker({
   sysTime: string;
 }) {
   const { t } = useTranslation();
-
+  const theme = useTheme();
+  console.log('Current theme:', theme);
   // const globalState = useSelector((state) => state.global);
   // const { sysTime } = globalState;
   const [lang, setLang] = useState<string | undefined>(i18n.resolvedLanguage);
