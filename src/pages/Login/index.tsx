@@ -1,5 +1,6 @@
+import { Android12Switch } from '@components/switch/CustomizedSwitches';
 const AuthLogin = () => {
-  return <div>123</div>;
+  return <Android12Switch />;
 };
 
 export default AuthLogin;

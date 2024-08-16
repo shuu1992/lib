@@ -35,7 +35,8 @@
       "@themes/*": ["src/themes/*"],
       "@type/*": ["src/types/*"],
       "@utils/*": ["src/utils/*"],
-      "@config/*": ["./config/*"]
+      "@config/*": ["./config/*"],
+      "@lib/*": ["./lib/*"]
     }
   },
   "include": ["src", "lib"],

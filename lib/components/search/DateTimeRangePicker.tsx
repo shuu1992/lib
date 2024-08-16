@@ -16,8 +16,6 @@ import 'dayjs/locale/zh-tw';
 import 'dayjs/locale/en';
 import 'dayjs/locale/vi';
 
-import { AppThemeProvider } from '@contexts/ThemeContext';
-
 export function SearchDateTimeRangePicker({
   showShortcutsItems = true,
   views = ['year', 'month', 'day', 'hours', 'minutes', 'seconds'],
@@ -171,40 +169,38 @@ export function SearchDateTimeRangePicker({
   }, [startValue, endValue, handleEndChange]);
 
   return (
-    <AppThemeProvider>
-      <FormControl fullWidth>
-        <LocalizationProvider
-          dateAdapter={AdapterDayjs}
-          adapterLocale={lang}
-          localeText={{ okButtonLabel: t('sys.confirm'), cancelButtonLabel: t('sys.cancel') }}
-        >
-          <MultiInputDateTimeRangeField
-            slotProps={{
-              textField: ({ position }) => ({
-                component: position === 'start' ? startComp : endComp,
-              }),
-            }}
-          />
-        </LocalizationProvider>
-        {showShortcutsItems && (
-          <Grid container sx={{ ml: 0.5 }}>
-            {shortcutsItems.map((item, index) => {
-              return (
-                <Button
-                  key={`dateTime${index}`}
-                  variant="outlined"
-                  sx={{ mt: 1, mr: isMobile ? 0.5 : 2 }}
-                  onClick={() => {
-                    item.getValue();
-                  }}
-                >
-                  {item.label}
-                </Button>
-              );
-            })}
-          </Grid>
-        )}
-      </FormControl>
-    </AppThemeProvider>
+    <FormControl fullWidth>
+      <LocalizationProvider
+        dateAdapter={AdapterDayjs}
+        adapterLocale={lang}
+        localeText={{ okButtonLabel: t('sys.confirm'), cancelButtonLabel: t('sys.cancel') }}
+      >
+        <MultiInputDateTimeRangeField
+          slotProps={{
+            textField: ({ position }) => ({
+              component: position === 'start' ? startComp : endComp,
+            }),
+          }}
+        />
+      </LocalizationProvider>
+      {showShortcutsItems && (
+        <Grid container sx={{ ml: 0.5 }}>
+          {shortcutsItems.map((item, index) => {
+            return (
+              <Button
+                key={`dateTime${index}`}
+                variant="outlined"
+                sx={{ mt: 1, mr: isMobile ? 0.5 : 2 }}
+                onClick={() => {
+                  item.getValue();
+                }}
+              >
+                {item.label}
+              </Button>
+            );
+          })}
+        </Grid>
+      )}
+    </FormControl>
   );
 }
