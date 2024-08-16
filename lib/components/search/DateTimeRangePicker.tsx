@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import i18n from '@i18n/index';
 import { getDateRange } from '@utils/date';
 // material-ue
-import { FormControl, Button, useTheme } from '@mui/material';
+import { FormControl, Button, useTheme, ThemeProvider } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -16,7 +16,6 @@ import 'dayjs/locale/zh-tw';
 import 'dayjs/locale/en';
 import 'dayjs/locale/vi';
 // import ThemeCustomization from '@themes/index';
-// import { ThemeProvider, useTheme } from '@mui/material/styles';
 
 export function SearchDateTimeRangePicker({
   showShortcutsItems = true,
@@ -173,40 +172,40 @@ export function SearchDateTimeRangePicker({
   }, [startValue, endValue, handleEndChange]);
 
   return (
-    // <ThemeProvider theme={theme}>
-    <FormControl fullWidth>
-      <LocalizationProvider
-        dateAdapter={AdapterDayjs}
-        adapterLocale={lang}
-        localeText={{ okButtonLabel: t('sys.confirm'), cancelButtonLabel: t('sys.cancel') }}
-      >
-        <MultiInputDateTimeRangeField
-          slotProps={{
-            textField: ({ position }) => ({
-              component: position === 'start' ? startComp : endComp,
-            }),
-          }}
-        />
-      </LocalizationProvider>
-      {showShortcutsItems && (
-        <Grid container sx={{ ml: 0.5 }}>
-          {shortcutsItems.map((item, index) => {
-            return (
-              <Button
-                key={`dateTime${index}`}
-                variant="outlined"
-                sx={{ mt: 1, mr: isMobile ? 0.5 : 2 }}
-                onClick={() => {
-                  item.getValue();
-                }}
-              >
-                {item.label}
-              </Button>
-            );
-          })}
-        </Grid>
-      )}
-    </FormControl>
-    // </ThemeProvider>
+    <ThemeProvider theme={theme}>
+      <FormControl fullWidth>
+        <LocalizationProvider
+          dateAdapter={AdapterDayjs}
+          adapterLocale={lang}
+          localeText={{ okButtonLabel: t('sys.confirm'), cancelButtonLabel: t('sys.cancel') }}
+        >
+          <MultiInputDateTimeRangeField
+            slotProps={{
+              textField: ({ position }) => ({
+                component: position === 'start' ? startComp : endComp,
+              }),
+            }}
+          />
+        </LocalizationProvider>
+        {showShortcutsItems && (
+          <Grid container sx={{ ml: 0.5 }}>
+            {shortcutsItems.map((item, index) => {
+              return (
+                <Button
+                  key={`dateTime${index}`}
+                  variant="outlined"
+                  sx={{ mt: 1, mr: isMobile ? 0.5 : 2 }}
+                  onClick={() => {
+                    item.getValue();
+                  }}
+                >
+                  {item.label}
+                </Button>
+              );
+            })}
+          </Grid>
+        )}
+      </FormControl>
+    </ThemeProvider>
   );
 }
