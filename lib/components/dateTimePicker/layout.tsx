@@ -11,6 +11,8 @@ import { DateView } from '@mui/x-date-pickers/models';
 
 export default function CustomLayout(props: PickersLayoutProps<Dayjs | null, Dayjs, DateView>) {
   const theme = useTheme();
+  console.log('Current theme:', theme);
+  debugger;
   const { toolbar, content, actionBar } = usePickerLayout(props);
   return (
     <PickersLayoutRoot
