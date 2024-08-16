@@ -9,21 +9,29 @@ import * as path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), libInjectCss(), dts({ include: ['lib'] })],
   build: {
+    copyPublicDir: false,
     lib: {
-      entry: path.resolve(__dirname, 'src/lib/main.ts'),
-      name: 'MyComponent',
-      fileName: (format) => `my-component.${format}.js`,
+      entry: resolve(__dirname, 'lib/main.ts'),
+      formats: ['es'],
     },
     rollupOptions: {
-      // Ensure to externalize deps that shouldn't be bundled
-      external: ['react', 'react-dom'],
+      external: ['react', 'react/jsx-runtime'],
+      input: Object.fromEntries(
+        // https://rollupjs.org/configuration-options/#input
+        glob.sync('lib/**/*.{ts,tsx}').map((file) => [
+          // 1. The name of the entry point
+          // lib/nested/foo.js becomes nested/foo
+          relative('lib', file.slice(0, file.length - extname(file).length)),
+          // 2. The absolute path to the entry file
+          // lib/nested/foo.ts becomes /project/lib/nested/foo.ts
+          fileURLToPath(new URL(file, import.meta.url)),
+        ]),
+      ),
       output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-        },
+        assetFileNames: 'assets/[name][extname]',
+        entryFileNames: '[name].js',
       },
     },
   },
@@ -36,10 +44,12 @@ export default defineConfig({
       '@themes': path.resolve(__dirname, 'src/themes'),
       '@type': path.resolve(__dirname, 'src/types'),
       '@utils': path.resolve(__dirname, 'src/utils'),
-      '@mockData': path.resolve(__dirname, 'src/mockData'),
-      '@src-pwa': path.resolve(__dirname, 'src-pwa'),
       '@config': path.resolve(__dirname, './config'),
       '@contexts': path.resolve(__dirname, 'src/contexts'),
+      '@router': path.resolve(__dirname, 'src/router'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@layout': path.resolve(__dirname, 'src/layout'),
+      '@pages': path.resolve(__dirname, 'src/pages'),
     },
   },
 });

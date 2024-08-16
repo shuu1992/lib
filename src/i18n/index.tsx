@@ -2,22 +2,10 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import zhTW from './zh-TW';
-import zhCN from './zh-CN';
-import vi from './vi';
-import en from './en';
 
 export const resources = {
   zh_TW: {
     translation: zhTW,
-  },
-  zh_CN: {
-    translation: zhCN,
-  },
-  vi: {
-    translation: vi,
-  },
-  en: {
-    translation: en,
   },
 };
 

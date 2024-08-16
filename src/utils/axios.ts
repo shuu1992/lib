@@ -1,16 +1,17 @@
 import axios from 'axios';
 import i18n from '@i18n/index';
-import globalRouter from '@utils/globalRouter';
 const axiosServices = axios.create({
   baseURL: `${window.location.origin}/api`,
 });
-
+import { useAuthStore } from '@store/useAuthStore';
 // ==============================|| AXIOS - FOR MOCK SERVICES ||============================== //
 axiosServices.interceptors.request.use(
   (config) => {
+    const token = useAuthStore.getState().token;
     config.baseURL = `${config.baseURL}/${i18n.language}`;
-    const token = window.localStorage.getItem('token') || '';
-    if (token) {
+    const user = window.localStorage.getItem(`${import.meta.env.VITE_HTML_TITLE}-user`);
+    const userData = JSON.parse(user as string);
+    if (userData) {
       config.headers['Authorization'] = `Bearer ${token}`;
     }
     return config;
@@ -29,15 +30,6 @@ axiosServices.interceptors.response.use(
   },
   (error) => {
     const { data } = error.response;
-    switch (error.response.status) {
-      case 401:
-        window.location.href = '/login';
-        break;
-      case 406:
-        window.location.href = '/login';
-        setTimeout(window.close, 1000);
-        break;
-    }
 
     if (data.errors !== undefined && Object.keys(data.errors).length > 0) {
       let msg = '';

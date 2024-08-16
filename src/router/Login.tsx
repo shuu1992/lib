@@ -1,43 +1,19 @@
-import GuestGuard from '@utils/route-guard/GuestGuard';
-import { PageProvider } from '@src/contexts/PageContext';
-import CommonLayout from '@layout/CommonLayout/index';
-import Login from '@pages/Login';
-import ForgetPassword from '@pages/ForgetPassword';
+import { lazy } from 'react';
+// project imports
+import Loadable from '@components/Loadable';
+import SimpleLayout from '@layout/SimpleLayout';
+const Login = Loadable(lazy(() => import('@pages/Login')));
 
 const LoginRoutes = {
   path: '/',
   children: [
     {
       path: '/',
-      element: (
-        <GuestGuard>
-          <CommonLayout />
-        </GuestGuard>
-      ),
+      element: <SimpleLayout />,
       children: [
         {
           path: '/',
-          element: (
-            <PageProvider>
-              <Login />
-            </PageProvider>
-          ),
-        },
-        {
-          path: 'login',
-          element: (
-            <PageProvider>
-              <Login />
-            </PageProvider>
-          ),
-        },
-        {
-          path: 'forgetPaw',
-          element: (
-            <PageProvider>
-              <ForgetPassword />
-            </PageProvider>
-          ),
+          element: <Login />,
         },
       ],
     },

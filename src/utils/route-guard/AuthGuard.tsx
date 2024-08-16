@@ -1,15 +1,21 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+
+// project import
 import useAuth from '@hooks/useAuth';
+
+// types
+import { GuardProps } from '@type/auth';
+
 // ==============================|| AUTH GUARD ||============================== //
 
-const AuthGuard = ({ children }: { children: React.ReactElement }) => {
-  const { authState } = useAuth();
+const AuthGuard = ({ children }: GuardProps) => {
+  const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    if (!authState.isLoggedIn) {
+    if (!isLoggedIn) {
       navigate('login', {
         state: {
           from: location.pathname,
@@ -17,7 +23,7 @@ const AuthGuard = ({ children }: { children: React.ReactElement }) => {
         replace: true,
       });
     }
-  }, [authState.isLoggedIn, navigate, location]);
+  }, [isLoggedIn, navigate, location]);
 
   return children;
 };

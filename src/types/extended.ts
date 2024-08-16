@@ -3,7 +3,7 @@ import { Theme } from '@mui/material/styles';
 import { ButtonProps, ChipProps, IconButtonProps, SliderProps } from '@mui/material';
 import { LoadingButtonProps } from '@mui/lab';
 
-// ==============================|| EXTENDED COMPONENT - TYPES  ||============================== //
+// ==============================|| EXTENDED COMPONENT - TYPES ||============================== //
 
 export type ButtonVariantProps = 'contained' | 'light' | 'outlined' | 'dashed' | 'text' | 'shadow';
 export type IconButtonShapeProps = 'rounded' | 'square';

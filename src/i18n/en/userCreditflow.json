@@ -1,8 +1,0 @@
-{
-  "related_id": "Related ID",
-  "related_username": "Related Agent",
-  "order_sn": "Transaction ID",
-  "credit_before": "Balance Before",
-  "credit_add": "Amount Added",
-  "credit_after": "Balance After"
-}
