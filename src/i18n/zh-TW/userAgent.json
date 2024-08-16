@@ -1,0 +1,22 @@
+{
+  "level": "層級",
+  "generalAgent": "總代理",
+  "money_type": "帳務類型",
+  "money_limit": "最大限額",
+  "lose_limit": "最大輸額",
+  "payoff": "當前輸贏",
+  "payout": "派彩",
+  "remark": "備註",
+  "credit": "點數",
+  "agent_count": "代理總數",
+  "username": "帳號類型",
+  "user_count": "會員總數",
+  "money": "點數",
+  "agentTreeView": "代理樹狀圖",
+  "treeviewSearch": "樹狀圖搜尋",
+  "treeAgentMag": "下線代理管理",
+  "wallet_type": "錢包類型",
+  "api_url": "單錢包網址",
+  "group_id": "群組ID",
+  "rakeback": "反水比%"
+}

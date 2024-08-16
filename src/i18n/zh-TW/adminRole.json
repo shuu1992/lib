@@ -1,0 +1,7 @@
+{
+  "roleName": "角色名稱",
+  "platform": "平台",
+  "placRoleName": "請輸入角色名稱",
+  "permissionSetting": "權限設定",
+  "placSelectpermission": "請選擇權限"
+}

@@ -1,0 +1,12 @@
+{
+  "agentPath": "代理路徑",
+  "agentDetail": "代理詳情",
+  "resetLoseMsg": "重置當前輸贏，確定要重置嗎？",
+  "resetLoseSuc": "重置成功",
+  "flag": "標記",
+  "bet_real": "有效投注",
+  "bet_min": "最小投注",
+  "bet_max": "最大投注",
+  "nickname": "暱稱",
+  "phone": "電話"
+}

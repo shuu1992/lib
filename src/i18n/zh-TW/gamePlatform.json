@@ -1,0 +1,18 @@
+{
+  "code": "代碼",
+  "wallet_type": "錢包類別",
+  "currency": "幣別",
+  "timezone": "時區",
+  "payload": "有效負荷",
+  "lang": "語言",
+  "en": "英語",
+  "vi": "越南語",
+  "zh_CN": "簡體中文",
+  "zh_TW": "繁體中文",
+  "apiUrl": "API網址",
+  "appKey": "應用程式密鑰",
+  "wtoken": "網絡令牌",
+  "appSecret": "應用程式密碼",
+  "flag": "旗標",
+  "platform_type": "平台類別"
+}
