@@ -7,7 +7,7 @@ export default function CustomizedDateTimePicker(props: any) {
   const theme = useTheme();
   console.error(theme);
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <DateTimePicker
         slots={{
           layout: CustomLayout,
@@ -16,6 +16,8 @@ export default function CustomizedDateTimePicker(props: any) {
         dayOfWeekFormatter={(_day, weekday: any) => `${weekday.format('dd')}`}
         {...props}
       />
-    </ThemeProvider>
+      {theme}
+      {'dddd'}
+    </>
   );
 }

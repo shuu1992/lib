@@ -16,7 +16,7 @@ import 'dayjs/locale/zh-tw';
 import 'dayjs/locale/en';
 import 'dayjs/locale/vi';
 // import ThemeCustomization from '@themes/index';
-import { ThemeProvider, useTheme } from '@mui/material/styles';
+// import { ThemeProvider, useTheme } from '@mui/material/styles';
 
 export function SearchDateTimeRangePicker({
   showShortcutsItems = true,
