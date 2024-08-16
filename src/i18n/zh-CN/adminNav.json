@@ -1,0 +1,9 @@
+{
+  "sysLevel": "系统级别",
+  "pname": "上层",
+  "icon": "图示",
+  "route": "权限代码",
+  "sort": "排序",
+  "url": "Url路径",
+  "action_log": "操作日志"
+}

@@ -1,0 +1,13 @@
+{
+  "room_id": "Phòng trò chơi",
+  "game_no": "mã số trò chơi",
+  "betarea_id": "khu vực đặt cược",
+  "report_time": "thời gian",
+  "target_uid": "đặt cược đối lập Uid",
+  "target_username": "tài khoản đặt cược đối lập",
+  "target_bet_real": "số tiền đặt cược đối lập",
+  "target_bet_total": "tổng số tiền đặt cược đối lập",
+  "target_betarea_id": "khu vực đặt cược đối lập",
+  "target_report_time": "thời gian đặt cược đối lập",
+  "target_ip": "IP đặt cược đối lập "
+}

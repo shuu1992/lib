@@ -1,0 +1,7 @@
+{
+  "roleName": "Role Name",
+  "platform": "Platform",
+  "placRoleName": "Please enter role name",
+  "permissionSetting": "Permission Setting",
+  "placSelectpermission": "Please select permissions"
+}

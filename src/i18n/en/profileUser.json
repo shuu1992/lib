@@ -1,0 +1,11 @@
+{
+  "login_ip": "Login IP",
+  "login_time": "Login Time",
+  "login_count": "Login Count",
+  "personalInformation": "Personal Information",
+  "old_password": "Old Password",
+  "new_password": "New Password",
+  "samePasswordError": "New password cannot be the same as old password, please reset",
+  "confirm_password": "Confirm Password",
+  "editSucMsg": "Edit Successful, Please Re-login"
+}

@@ -1,0 +1,11 @@
+{
+  "login_ip": "登入IP",
+  "login_time": "登入时间",
+  "login_count": "登入次数",
+  "personalInformation": "个人资讯",
+  "old_password": "旧密码",
+  "new_password": "新密码",
+  "samePasswordError": "新旧密码相同,请重新设定",
+  "confirm_password": "确认密码",
+  "editSucMsg": "修改成功，请重新登入"
+}

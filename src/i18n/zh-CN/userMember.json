@@ -1,0 +1,7 @@
+{
+  "agentPath": "代理路径",
+  "agentDetail": "代理详情",
+  "resetLoseMsg": "重置当前输赢，确定要重置吗？",
+  "resetLoseSuc": "重置成功",
+  "flag": "未下注是否自动踢除"
+}

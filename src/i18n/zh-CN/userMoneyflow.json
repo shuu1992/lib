@@ -1,0 +1,9 @@
+{
+  "related_id": "关联ID",
+  "bet_no": "注单编号",
+  "order_sn": "交易编号",
+  "money_before": "异动前余额",
+  "money_add": "异动金额",
+  "money_after": "异动后余额",
+  "related": "相关单号"
+}

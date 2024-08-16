@@ -1,0 +1,9 @@
+{
+  "related_id": "ID liên quan",
+  "bet_no": "Mã số đặt cược",
+  "order_sn": "Mã số giao dịch",
+  "money_before": "Số dư trước khi thay đổi",
+  "money_add": "Thay đổi số tiền",
+  "money_after": "Số dư sau khi thay đổi",
+  "related": "Số đơn hàng liên quan"
+}

@@ -1,0 +1,11 @@
+{
+  "login_ip": "đăng nhập IP",
+  "login_time": "thời gian đăng nhập",
+  "login_count": "Số lần đăng nhập",
+  "personalInformation": "Thông tin cá nhân",
+  "old_password": "Mật khẩu cũ",
+  "new_password": "Mật khẩu mới",
+  "samePasswordError": "Mật khẩu cũ và mới giống nhau, vui lòng đặt lại",
+  "confirm_password": "Xác nhận mật khẩu",
+  "editSucMsg": "Sửa đổi thành công, vui lòng đăng nhập lại"
+}
