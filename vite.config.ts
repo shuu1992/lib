@@ -17,7 +17,7 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: ['react', 'react/jsx-runtime'],
+      external: ['react', 'react-dom', '@mui/material', '@mui/x-date-pickers'],
       input: Object.fromEntries(
         // https://rollupjs.org/configuration-options/#input
         glob.sync('lib/**/*.{ts,tsx}').map((file) => [
@@ -30,6 +30,12 @@ export default defineConfig({
         ]),
       ),
       output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+          '@mui/material': 'MUI',
+          '@mui/x-date-pickers': 'MuiDatePickers'
+        },
         assetFileNames: 'assets/[name][extname]',
         entryFileNames: '[name].js',
       },
