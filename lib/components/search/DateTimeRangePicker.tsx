@@ -158,7 +158,7 @@ export function SearchDateTimeRangePicker({
         onChange={handleStartChange}
       />
     );
-  }, [startValue, endValue, handleStartChange]);
+  }, [theme, startValue, endValue, handleStartChange]);
   const endComp = useCallback(() => {
     return (
       <MemoizedCustomizedDateTimePicker
