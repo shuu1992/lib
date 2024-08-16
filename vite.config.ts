@@ -20,9 +20,10 @@ export default defineConfig({
       external: [
         'react',
         'react-dom',
-        '@mui/material',
-        '@mui/x-date-pickers/**/*.{ts,tsx,js}',
-        '@mui/x-date-pickers-pro/*.{ts,tsx,js}',
+        '@mui/**/*.{ts,tsx,js}',
+        // '@mui/material',
+        // '@mui/x-date-pickers/**/*.{ts,tsx,js}',
+        // '@mui/x-date-pickers-pro/*.{ts,tsx,js}',
         // '@mui/x-date-pickers/LocalizationProvider',
         // '@mui/x-date-pickers/DatePicker',
       ],
