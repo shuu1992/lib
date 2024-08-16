@@ -1,17 +1,28 @@
-import { createContext, ReactNode } from 'react';
+import { createContext, ReactNode, useEffect } from 'react';
 
 // project import
 import config from '../config';
 import useLocalStorage from '@hooks/useLocalStorage';
 
 // types
-import { CustomizationProps, FontFamily, I18n, ThemeMode } from '@type/config';
+import {
+  CustomizationProps,
+  FontFamily,
+  MenuOrientation,
+  PresetColor,
+  ThemeDirection,
+  ThemeMode,
+} from '@type/config';
 
 // initial state
 const initialState: CustomizationProps = {
   ...config,
-  onChangeLocalization: (lang: I18n) => {},
+  onChangeContainer: () => {},
   onChangeMode: (mode: ThemeMode) => {},
+  onChangePresetColor: (theme: PresetColor) => {},
+  onChangeDirection: (direction: ThemeDirection) => {},
+  onChangeMiniDrawer: (miniDrawer: boolean) => {},
+  onChangeMenuOrientation: (menuOrientation: MenuOrientation) => {},
   onChangeFontFamily: (fontFamily: FontFamily) => {},
 };
 
@@ -24,26 +35,51 @@ type ConfigProviderProps = {
 };
 
 function ConfigProvider({ children }: ConfigProviderProps) {
-  const [config, setConfig] = useLocalStorage(
-    `${import.meta.env.VITE_HTML_TITLE}-config`,
-    initialState,
-  );
+  const [config, setConfig] = useLocalStorage('cms-config', initialState);
 
-  const onChangeLocalization = (lang: I18n) => {
+  const onChangeContainer = () => {
     setConfig({
       ...config,
-      i18nLang: lang,
+      container: !config.container,
     });
   };
 
-  const onChangeMode = (mode: ThemeMode) => {
-    setConfig({
+  const onChangeMode = async (mode: ThemeMode) => {
+    await setConfig({
       ...config,
       mode,
     });
   };
 
-  const onChangeFontFamily = (fontFamily: FontFamily) => {
+  const onChangePresetColor = async (theme: PresetColor) => {
+    setConfig({
+      ...config,
+      presetColor: theme,
+    });
+  };
+
+  const onChangeDirection = (direction: ThemeDirection) => {
+    setConfig({
+      ...config,
+      themeDirection: direction,
+    });
+  };
+
+  const onChangeMiniDrawer = (miniDrawer: boolean) => {
+    setConfig({
+      ...config,
+      miniDrawer,
+    });
+  };
+
+  const onChangeMenuOrientation = (layout: MenuOrientation) => {
+    setConfig({
+      ...config,
+      menuOrientation: layout,
+    });
+  };
+
+  const onChangeFontFamily = async (fontFamily: FontFamily) => {
     setConfig({
       ...config,
       fontFamily,
@@ -54,8 +90,12 @@ function ConfigProvider({ children }: ConfigProviderProps) {
     <ConfigContext.Provider
       value={{
         ...config,
-        onChangeLocalization,
+        onChangeContainer,
         onChangeMode,
+        onChangePresetColor,
+        onChangeDirection,
+        onChangeMiniDrawer,
+        onChangeMenuOrientation,
         onChangeFontFamily,
       }}
     >

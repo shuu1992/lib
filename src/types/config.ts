@@ -1,8 +1,9 @@
 export type FontFamily =
-  | `'Inter', sans-serif`
-  | `'Poppins', sans-serif`
-  | `'Roboto', sans-serif`
-  | `'Public Sans', sans-serif`;
+  | `'Inter', Courier, sans-serif, serif`
+  | `'Poppins', Courier, sans-serif, serif`
+  | `'Roboto', Courier, sans-serif, serif`
+  | `'Public Sans', Courier, sans-serif, serif`
+  | `'Microsoft JhengHei',Microsoft Yahei,Helvetica,Hiragino Sans GB,Arial, sans-serif, serif`;
 export type PresetColor =
   | 'default'
   | 'theme1'
@@ -13,35 +14,62 @@ export type PresetColor =
   | 'theme6'
   | 'theme7'
   | 'theme8';
-export type I18n = 'en' | 'zh_TW';
 
 export enum ThemeMode {
   LIGHT = 'light',
   DARK = 'dark',
 }
 
+export enum MenuOrientation {
+  VERTICAL = 'vertical',
+  HORIZONTAL = 'horizontal',
+}
+
+export enum ThemeDirection {
+  LTR = 'ltr',
+  RTL = 'rtl',
+}
+
 // ==============================|| CONFIG TYPES ||============================== //
+
+export type CustomizationActionProps = {
+  type: string;
+  payload?: CustomizationProps;
+};
 
 export type DefaultConfigProps = {
   /**
    * The props used for the theme font-style.
    * We provide static below options -
-   * `'Inter', sans-serif`
-   * `'Poppins', sans-serif`
-   * `'Roboto', sans-serif`
-   * `'Public Sans', sans-serif` (default)
+   * `'Inter', Courier, sans-serif, serif`
+   * `'Poppins', Courier, sans-serif, serif`
+   * `'Roboto', Courier, sans-serif, serif`
+   * `'Public Sans', Courier, sans-serif, serif` (default)
    */
   fontFamily: FontFamily;
 
   /**
-   * The props used for display menu-items with multi-language.
-   * We provide static below languages according to 'react-intl' options - https://www.npmjs.com/package/react-intl
-   * 'en' (default)
-   * 'fr'
-   * 'ro'
-   * 'zh'
+   * the props used for menu orientation (diffrent theme layout).
+   * we provide static below options -
+   * 'vertical' (default) - MenuOrientation.VERTICAL
+   * 'horizontal' - MenuOrientation.HORIZONTAL
    */
-  i18nLang: I18n;
+  menuOrientation: MenuOrientation;
+
+  /**
+   * the props used for show mini variant drawer
+   * the mini variant is recommended for apps sections that need quick selection access alongside content.
+   * default - false
+   */
+  miniDrawer: boolean;
+
+  /**
+   * the props used for theme container.
+   * the container centers your content horizontally. It's the most basic layout element.
+   * default - true which show container
+   * false - will show fluid
+   */
+  container: boolean;
 
   /**
    * the props used for default theme palette mode
@@ -66,13 +94,30 @@ export type DefaultConfigProps = {
    * 'theme8'
    */
   presetColor: PresetColor;
+
+  /**
+   * the props used for default theme direction
+   * explore the default theme
+   * below theme options -
+   * 'ltr' (default) - ThemeDirection.LTR
+   * 'rtl' - ThemeDirection.RTL
+   */
+  themeDirection: ThemeDirection;
 };
 
 export type CustomizationProps = {
   fontFamily: FontFamily;
-  i18nLang: I18n;
+  miniDrawer: boolean;
+  container: boolean;
+  menuOrientation: MenuOrientation;
   mode: ThemeMode;
-  onChangeLocalization: (lang: I18n) => void;
+  presetColor: PresetColor;
+  themeDirection: ThemeDirection;
+  onChangeContainer: VoidFunction;
   onChangeMode: (mode: ThemeMode) => void;
+  onChangePresetColor: (theme: PresetColor) => void;
+  onChangeDirection: (direction: ThemeDirection) => void;
+  onChangeMiniDrawer: (miniDrawer: boolean) => void;
+  onChangeMenuOrientation: (menuOrientation: MenuOrientation) => void;
   onChangeFontFamily: (fontFamily: FontFamily) => void;
 };
