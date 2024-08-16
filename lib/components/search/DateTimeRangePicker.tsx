@@ -15,7 +15,8 @@ import dayjs, { Dayjs } from 'dayjs';
 import 'dayjs/locale/zh-tw';
 import 'dayjs/locale/en';
 import 'dayjs/locale/vi';
-import ThemeCustomization from '@themes/index';
+// import ThemeCustomization from '@themes/index';
+import { ThemeProvider, useTheme } from '@mui/material/styles';
 
 export function SearchDateTimeRangePicker({
   showShortcutsItems = true,
@@ -41,6 +42,8 @@ export function SearchDateTimeRangePicker({
   sysTime: string;
 }) {
   const { t } = useTranslation();
+  const theme = useTheme();
+
   // const globalState = useSelector((state) => state.global);
   // const { sysTime } = globalState;
   const [lang, setLang] = useState<string | undefined>(i18n.resolvedLanguage);
@@ -170,7 +173,7 @@ export function SearchDateTimeRangePicker({
   }, [startValue, endValue, handleEndChange]);
 
   return (
-    <ThemeCustomization>
+    <ThemeProvider theme={theme}>
       <FormControl fullWidth>
         <LocalizationProvider
           dateAdapter={AdapterDayjs}
@@ -204,6 +207,6 @@ export function SearchDateTimeRangePicker({
           </Grid>
         )}
       </FormControl>
-    </ThemeCustomization>
+    </ThemeProvider>
   );
 }
