@@ -7,5 +7,5 @@
   "min": "最小值为 {{num}}",
   "max": "最大值为 {{num}}",
   "limitMin": "{{key}}不可小于{{minKey}}",
-  "no_trailing_slash": "請勿輸入尾部斜線"
+  "trailing_slash": "請輸入尾部斜線"
 }

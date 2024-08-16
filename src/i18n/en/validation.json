@@ -7,5 +7,5 @@
   "min": "Minimum value is {{num}}",
   "max": "Maximum value is {{num}}",
   "limitMin": "{{key}} cannot be less than {{minKey}}",
-  "no_trailing_slash": "Please do not enter a trailing slash"
+  "trailing_slash": "Please enter a trailing slash"
 }

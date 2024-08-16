@@ -8,5 +8,5 @@
   "max": "最大值為 {{num}}",
   "limitMin": "{{key}}不可小於{{minKey}}",
   "invalidIp": "IP格式錯誤 ex:192.168.0",
-  "no_trailing_slash": "請勿輸入尾部斜線"
+  "trailing_slash": "請輸入尾部斜線"
 }

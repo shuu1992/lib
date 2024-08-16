@@ -28,5 +28,7 @@
   "copyTxt1": "Join the Agent Announcement Channel",
   "copyTxt2": "Stay Updated with the Latest Information",
   "copyTxt3": "Welcome to the Player Announcement Channel",
-  "copyTxt4": "Periodic Player Promotion Information"
+  "copyTxt4": "Periodic Player Promotion Information",
+  "selectData": "Select Data",
+  "changeAgent": "Switch Agent"
 }

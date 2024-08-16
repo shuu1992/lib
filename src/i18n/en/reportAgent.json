@@ -3,5 +3,7 @@
   "playerWinlose": "Direct Player",
   "agentName": "Agent Name",
   "memberName": "Member Name",
-  "betUserCount": "Bet User Count"
+  "betUserCount": "Bet User Count",
+  "currency": "Currency",
+  "currencyMulti": "Multi Currency"
 }

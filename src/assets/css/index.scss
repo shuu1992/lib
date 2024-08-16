@@ -1,0 +1,60 @@
+@import './card.scss';
+iframe {
+  width: 100% !important;
+}
+// 列表太長...
+.nowrap {
+  max-width: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 必填前面需紅字
+.requireClass::before {
+  display: inline-block;
+  margin-right: 4px;
+  color: #ff4d4f;
+  font-size: 14px;
+  font-family: SimSun, Courier, sans-serif, serif;
+  line-height: 1;
+  content: '*';
+}
+
+/* mui datepicker pro  */
+.MuiDateRangeCalendar-root > div:nth-of-type(1) {
+  display: none !important;
+}
+
+// 上傳檔案
+.MuiFileInput-TextField {
+  .MuiInputBase-root {
+    label {
+      span {
+        position: absolute;
+        left: 14px !important;
+      }
+    }
+  }
+}
+
+//Label 額外註解
+.labelNotic {
+  color: #8c8c8c;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.66;
+  text-align: left;
+  margin-top: 3px;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+
+.singaleEllipsis {
+  text-align: left;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

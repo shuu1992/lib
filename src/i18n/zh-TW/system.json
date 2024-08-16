@@ -132,5 +132,7 @@
   "pieChart": "圓餅圖",
 
   "copyToClipboard": "已複製至剪貼簿",
-  "clickToCopy": "點擊以複製"
+  "clickToCopy": "點擊以複製",
+
+  "selectAll": "全選"
 }

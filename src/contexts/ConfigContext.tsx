@@ -13,7 +13,8 @@ import {
   ThemeDirection,
   ThemeMode,
 } from '@type/config';
-
+import { dispatch } from '@store/index';
+import { actionLoading } from '@store/reducers/global';
 // initial state
 const initialState: CustomizationProps = {
   ...config,

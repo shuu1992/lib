@@ -1,5 +1,5 @@
 {
-  "name": "@shuu1992/date-time-range-picker",
+  "name": "@shuu1992/lib",
   "author": "shu",
   "private": false,
   "version": "1.0.1",
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shuu1992/dateTimeRangePicker.git"
+    "url": "git+https://github.com/shuu1992/lib.git"
   },
   "sideEffects": [
     "**/*.css"

@@ -129,5 +129,6 @@
   "lineChart": "Line Chart",
   "pieChart": "Pie Chart",
   "copyToClipboard": "Copied to Clipboard",
-  "clickToCopy": "Click to Copy"
+  "clickToCopy": "Click to Copy",
+  "selectAll": "Select All"
 }

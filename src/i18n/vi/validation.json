@@ -7,5 +7,5 @@
   "min": "Giá trị nhỏ nhất là {{num}}",
   "max": "Giá trị lớn nhất là {{num}}",
   "limitMin": "{{key}}không thể nhỏ hơn{{minKey}}",
-  "no_trailing_slash": "Vui lòng không nhập dấu gạch chéo cuối cùng"
+  "trailing_slash": "Vui lòng nhập dấu gạch chéo ở cuối"
 }

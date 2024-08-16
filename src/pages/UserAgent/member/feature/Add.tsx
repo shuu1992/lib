@@ -1,0 +1,284 @@
+import { useState, useEffect } from 'react';
+import * as Yup from 'yup';
+import usePage from '@hooks/usePage';
+import { TbSelectProps, PgListProps, PgCfgProps } from '@type/page';
+import { useFormik, FormikProvider } from 'formik';
+import { useModalWindow } from 'react-modal-global';
+// material-ui
+import Grid from '@mui/material/Unstable_Grid2';
+import { FormHelperText, TextField, InputLabel } from '@mui/material';
+// custom Components
+import CustomizedDialog from '@components/dialog/FormDialog';
+import PasswordInput from '@components/form/PasswordInput';
+import SelectBase from '@components/form/BaseSelect';
+import NumberTextField from '@components/form/NumberTextField';
+import SelectMultiple from '@components/form/MultipleSelect';
+// api
+import { apiAdd } from '@src/api/UserMember';
+import { IResInfo } from '@api/UserAgent/res';
+import { fcMoneyFormat } from '@src/utils/method';
+
+export default function AddDialog({
+  parentData,
+  flagList = [],
+  groupList = [],
+  moneyTypeList = [],
+  typeList = [],
+  statusList = [],
+  fetchData,
+}: {
+  parentData: IResInfo;
+  flagList: TbSelectProps[];
+  groupList: TbSelectProps[];
+  moneyTypeList: TbSelectProps[];
+  typeList: TbSelectProps[];
+  statusList: TbSelectProps[];
+  fetchData: () => Promise<void>;
+}) {
+  const { t, fcShowMsg } = usePage();
+  const modal = useModalWindow();
+  const [groupOptions, setGroupOptions] = useState<TbSelectProps[]>([]);
+  const fcCloseDialog = () => {
+    resetForm();
+    modal.close();
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      agent_id: '',
+      username: '',
+      password: '',
+      name: '',
+      money_limit: 0,
+      lose_limit: 0,
+      rakeback: 0,
+      group_id: '',
+      flag: 0,
+      flag_ary: '',
+      status: '',
+      remark: '',
+    },
+    validationSchema: Yup.object().shape({
+      username: Yup.string().required(t('vt.require', { key: t('sys.username') })),
+      password: Yup.string().required(t('vt.require', { key: t('sys.password') })),
+      name: Yup.string().required(t('vt.require', { key: t('sys.name') })),
+      money_limit: Yup.number()
+        .required(t('vt.require', { key: t('userAgent.money_limit') }))
+        .min(0, t('vt.min', { num: 0 })),
+      lose_limit: Yup.number()
+        .required(t('vt.require', { key: t('userAgent.lose_limit') }))
+        .min(0, t('vt.min', { num: 0 })),
+      rakeback: Yup.number()
+        .required(t('vt.require', { key: t('userAgent.rakeback') }))
+        .min(0, t('vt.min', { num: 0 }))
+        .max(parentData.rakeback, t('vt.max', { num: fcMoneyFormat(parentData.rakeback) })),
+      group_id: Yup.string().required(t('vt.require', { key: t('userAgent.group_id') })),
+      status: Yup.string().required(t('vt.require', { key: t('sys.status') })),
+    }),
+    validateOnChange: true,
+    onSubmit: async (values) => {
+      const postData = {
+        ...values,
+        flag: values.flag_ary.split(',').reduce((acc, cur) => acc + (parseInt(cur, 10) || 0), 0),
+      };
+      try {
+        const { code } = await apiAdd(postData);
+        if (code === 200) {
+          await fetchData();
+          await fcCloseDialog();
+          await fcShowMsg({ type: 'success', msg: t('sys.addSuc') });
+        }
+      } catch (error: any) {
+        fcShowMsg({ type: 'error', msg: error.message });
+        throw error;
+      }
+    },
+  });
+
+  const {
+    values,
+    errors,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    validateForm,
+    setFieldValue,
+    resetForm,
+    setValues,
+    setErrors,
+  } = formik;
+
+  useEffect(() => {
+    console.log('parentData', parentData);
+    setValues({
+      ...values,
+      agent_id: parentData.agent_id as string,
+    });
+    if (!parentData.group_id) {
+      setGroupOptions(groupList);
+      return;
+    }
+    const options: TbSelectProps[] = [];
+    parentData.group_id.split(',').forEach((item) => {
+      const group = groupList.find((group) => group.value === item);
+      if (group) options.push(group);
+    });
+    setGroupOptions(options);
+  }, [modal.closed]);
+
+  return (
+    <FormikProvider value={formik}>
+      <CustomizedDialog
+        flag={!modal.closed}
+        title={t('sys.add')}
+        confirmCfg={{
+          flag: true,
+          txt: t('sys.add'),
+          fcConfirm: async () => {
+            const valRes = await validateForm();
+            if (Object.keys(valRes).length > 0) return Promise.reject();
+            handleSubmit();
+            return Promise.resolve();
+          },
+        }}
+        fcChangeDialog={fcCloseDialog}
+      >
+        <Grid container spacing={2} p={1} alignItems="center">
+          {/* 帳號 */}
+          <Grid xs={12} md={6}>
+            <InputLabel className="requireClass">{t('sys.username')}</InputLabel>
+            <TextField
+              name="username"
+              placeholder={t('sys.username')}
+              fullWidth
+              onBlur={handleBlur('username')}
+              onChange={handleChange('username')}
+              value={values.username}
+              error={Boolean(errors.username)}
+              helperText={errors.username ? errors.username : null}
+            />
+          </Grid>
+          {/* 密碼 */}
+          <Grid xs={12} md={6}>
+            <InputLabel className="requireClass">{t('sys.password')}</InputLabel>
+            <PasswordInput
+              value={values.password}
+              setValue={(value: string) => {
+                setFieldValue('password', value);
+              }}
+            />
+            {errors.password && <FormHelperText error>{errors.password}</FormHelperText>}
+          </Grid>
+          {/* 真實姓名 */}
+          <Grid xs={12} md={6}>
+            <InputLabel className="requireClass">{t('sys.name')}</InputLabel>
+            <TextField
+              name="name"
+              placeholder={t('sys.name')}
+              fullWidth
+              onBlur={handleBlur('name')}
+              onChange={handleChange('name')}
+              value={values.name}
+              error={Boolean(errors.name)}
+              helperText={errors.name ? errors.name : null}
+            />
+          </Grid>
+          {/* 返水 */}
+          <Grid xs={12} md={6}>
+            <InputLabel className="requireClass">{t('userAgent.rakeback')}</InputLabel>
+            <TextField
+              name="rakeback"
+              type="number"
+              inputProps={{ step: 0.01 }}
+              placeholder={t('sys.rakeback')}
+              fullWidth
+              onBlur={handleBlur('rakeback')}
+              onChange={handleChange('rakeback')}
+              value={values.rakeback}
+              error={Boolean(errors.rakeback)}
+              helperText={errors.rakeback ? errors.rakeback : null}
+            />
+          </Grid>
+          {/* 最大限額 */}
+          <Grid xs={12} md={6}>
+            <InputLabel className="requireClass">{t('userAgent.money_limit')}</InputLabel>
+            <NumberTextField
+              placeholder={t('userAgent.money_limit')}
+              value={values.money_limit}
+              errors={errors.money_limit}
+              setValue={(value: string | number) => {
+                handleChange('money_limit');
+                setFieldValue('money_limit', value);
+              }}
+            />
+          </Grid>
+          {/* 最大輸額*/}
+          <Grid xs={12} md={6}>
+            <InputLabel className="requireClass">{t('userAgent.lose_limit')}</InputLabel>
+            <NumberTextField
+              placeholder={t('userAgent.lose_limit')}
+              value={values.lose_limit}
+              errors={errors.lose_limit}
+              setValue={(value: string | number) => {
+                handleChange('lose_limit');
+                setFieldValue('lose_limit', value);
+              }}
+            />
+          </Grid>
+          {/* 可用限紅組 */}
+          <Grid xs={12} md={6}>
+            <InputLabel className="requireClass">{t('userAgent.group_id')}</InputLabel>
+            <SelectBase
+              options={groupOptions}
+              value={values.group_id}
+              errors={errors.group_id}
+              setValue={(value: string) => {
+                setFieldValue('group_id', value);
+              }}
+            />
+          </Grid>
+          {/* 狀態 */}
+          <Grid xs={12} md={6}>
+            <InputLabel className="requireClass">{t('sys.status')}</InputLabel>
+            <SelectBase
+              options={statusList}
+              value={values.status}
+              errors={errors.status}
+              setValue={(value: string) => {
+                setFieldValue('status', value);
+              }}
+            />
+          </Grid>
+          {/* 顯示註記 */}
+          <Grid xs={12} md={6}>
+            <InputLabel className="requireClass">{t('userMember.flag')}</InputLabel>
+            <SelectMultiple
+              options={flagList}
+              value={values.flag_ary}
+              errors={errors.flag_ary}
+              setValue={(value: string) => {
+                setFieldValue('flag_ary', value);
+              }}
+            />
+          </Grid>
+          {/* 備註 */}
+          <Grid xs={12}>
+            <InputLabel>{t('sys.remark')}</InputLabel>
+            <TextField
+              name="remark"
+              placeholder={t('sys.remark')}
+              fullWidth
+              multiline
+              rows={4}
+              onBlur={handleBlur('remark')}
+              onChange={handleChange('remark')}
+              value={values.remark}
+              error={Boolean(errors.remark)}
+              helperText={errors.remark ? errors.remark : null}
+            />
+          </Grid>
+        </Grid>
+      </CustomizedDialog>
+    </FormikProvider>
+  );
+}

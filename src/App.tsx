@@ -1,51 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Button, Label, Input } from '../';
+import { useEffect, useState } from 'react';
+import './i18n/index';
+import { dispatch } from '@store/index';
+import ThemeCustomization from '@themes/index';
+import { SnackbarProvider } from 'notistack';
+import { JWTProvider as AuthProvider } from '@src/contexts/JWTContext';
+import i18n from '@i18n/index';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { AliveScope } from 'react-activation';
+import { apiSystime } from '@api/Auth';
+import { actionSystime } from '@store/reducers/global';
+import Loadable from '@components/Loadable';
+import globalRouter from '@utils/globalRouter';
+import Router from './router/index';
 
-function App() {
-  const [count, setCount] = useState(0)
-  const [inputCustomCountValue, setInputCustomCountValue] = useState('');
-
-  const handleClickCustomCount = () => {
-    if (inputCustomCountValue === '') {
-      setCount(count => count + 1);
-    } else {
-      setCount(Number(inputCustomCountValue));
+const App = () => {
+  const { t } = useTranslation();
+  const fcSystime = async () => {
+    try {
+      const { data } = await apiSystime();
+      dispatch(actionSystime({ sysTime: data.time }));
+    } catch (error: any) {
+      throw error;
     }
-  }
+  };
+  const navigate = useNavigate();
+  globalRouter.navigate = navigate;
+
+  useEffect(() => {
+    fcSystime();
+    const lang = window.localStorage.getItem('lang');
+    if (lang === null || lang === undefined) {
+      window.localStorage.setItem('lang', i18n.language);
+    } else {
+      i18n.changeLanguage(lang);
+    }
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <Label>My Label</Label><br />
-        <Input
-          placeholder="Custom count"
-          value={inputCustomCountValue}
-          onChange={(e) => setInputCustomCountValue(e.target.value)}
-        /><br />
-        <Button onClick={handleClickCustomCount}>
-          count is {count}
-        </Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <ThemeCustomization>
+      <AuthProvider>
+        <SnackbarProvider>
+          <AliveScope>
+            <Loadable>
+              <Router />
+            </Loadable>
+          </AliveScope>
+        </SnackbarProvider>
+      </AuthProvider>
+    </ThemeCustomization>
+  );
+};
 
-export default App
+export default App;

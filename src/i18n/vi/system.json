@@ -129,5 +129,6 @@
   "lineChart": "biểu đồ đường",
   "pieChart": "biểu đồ tròn",
   "copyToClipboard": "Đã sao chép vào clipboard",
-  "clickToCopy": "Nhấp để sao chép"
+  "clickToCopy": "Nhấp để sao chép",
+  "selectAll": "Chọn tất cả"
 }

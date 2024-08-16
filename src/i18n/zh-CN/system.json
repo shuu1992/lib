@@ -130,5 +130,7 @@
   "pieChart": "圆饼图",
 
   "copyToClipboard": "已复制至剪贴板",
-  "clickToCopy": "点击以复制"
+  "clickToCopy": "点击以复制",
+
+  "selectAll": "全选"
 }

@@ -14,7 +14,7 @@ import { CustomShadowProps } from '@type/theme';
 import Palette from './palette';
 import CustomShadows from './shadows';
 import Typography from './typography';
-// import componentsOverride from './overrides';
+import componentsOverride from './overrides';
 
 // types
 type ThemeCustomizationProps = {
@@ -64,7 +64,7 @@ export default function ThemeCustomization({ children }: ThemeCustomizationProps
   );
 
   const themes: Theme = createTheme(themeOptions);
-  // themes.components = componentsOverride(themes);
+  themes.components = componentsOverride(themes);
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={themes}>
