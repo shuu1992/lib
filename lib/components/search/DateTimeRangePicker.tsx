@@ -172,40 +172,38 @@ export function SearchDateTimeRangePicker({
   }, [startValue, endValue, handleEndChange]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <FormControl fullWidth>
-        <LocalizationProvider
-          dateAdapter={AdapterDayjs}
-          adapterLocale={lang}
-          localeText={{ okButtonLabel: t('sys.confirm'), cancelButtonLabel: t('sys.cancel') }}
-        >
-          <MultiInputDateTimeRangeField
-            slotProps={{
-              textField: ({ position }) => ({
-                component: position === 'start' ? startComp : endComp,
-              }),
-            }}
-          />
-        </LocalizationProvider>
-        {showShortcutsItems && (
-          <Grid container sx={{ ml: 0.5 }}>
-            {shortcutsItems.map((item, index) => {
-              return (
-                <Button
-                  key={`dateTime${index}`}
-                  variant="outlined"
-                  sx={{ mt: 1, mr: isMobile ? 0.5 : 2 }}
-                  onClick={() => {
-                    item.getValue();
-                  }}
-                >
-                  {item.label}
-                </Button>
-              );
-            })}
-          </Grid>
-        )}
-      </FormControl>
-    </ThemeProvider>
+    <FormControl fullWidth>
+      <LocalizationProvider
+        dateAdapter={AdapterDayjs}
+        adapterLocale={lang}
+        localeText={{ okButtonLabel: t('sys.confirm'), cancelButtonLabel: t('sys.cancel') }}
+      >
+        <MultiInputDateTimeRangeField
+          slotProps={{
+            textField: ({ position }) => ({
+              component: position === 'start' ? startComp : endComp,
+            }),
+          }}
+        />
+      </LocalizationProvider>
+      {showShortcutsItems && (
+        <Grid container sx={{ ml: 0.5 }}>
+          {shortcutsItems.map((item, index) => {
+            return (
+              <Button
+                key={`dateTime${index}`}
+                variant="outlined"
+                sx={{ mt: 1, mr: isMobile ? 0.5 : 2 }}
+                onClick={() => {
+                  item.getValue();
+                }}
+              >
+                {item.label}
+              </Button>
+            );
+          })}
+        </Grid>
+      )}
+    </FormControl>
   );
 }

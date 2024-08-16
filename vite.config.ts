@@ -36,12 +36,13 @@ export default defineConfig({
         ]),
       ),
       output: {
-        // globals: {
-        //   react: 'React',
-        //   'react-dom': 'ReactDOM',
-        //   '@mui/material': 'MUI',
-        //   '@mui/x-date-pickers': 'MuiDatePickers',
-        // },
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+          '@mui/material': 'MUI',
+          '@mui/x-date-pickers': 'MuiDatePickers',
+          '@mui/x-date-pickers-pro': 'MuiDatePickersPro',
+        },
         assetFileNames: 'assets/[name][extname]',
         entryFileNames: '[name].js',
       },
