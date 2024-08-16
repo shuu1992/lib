@@ -5,7 +5,6 @@ import { ThemeProvider, useTheme } from '@mui/material/styles';
 
 export default function CustomizedDateTimePicker(props: any) {
   const theme = useTheme();
-  console.error(theme);
   return (
     <>
       <DateTimePicker
@@ -16,7 +15,7 @@ export default function CustomizedDateTimePicker(props: any) {
         dayOfWeekFormatter={(_day, weekday: any) => `${weekday.format('dd')}`}
         {...props}
       />
-      {theme}
+      {theme?.palette?.text?.primary}
       {'dddd'}
     </>
   );
