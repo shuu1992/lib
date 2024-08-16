@@ -1,9 +1,0 @@
-{
-  "related_id": "關聯ID",
-  "bet_no": "注單編號",
-  "order_sn": "交易編號",
-  "money_before": "異動前餘額",
-  "money_add": "異動金額",
-  "money_after": "異動後餘額",
-  "related": "相關單號"
-}

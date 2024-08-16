@@ -1,10 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import { createRoot } from 'react-dom/client';
+import { ConfigProvider } from '@contexts/ConfigContext';
+import App from './App';
+const container = document.getElementById('root');
+const root = createRoot(container!);
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+root.render(
+  <ConfigProvider>
     <App />
-  </React.StrictMode>,
-)
+  </ConfigProvider>,
+);

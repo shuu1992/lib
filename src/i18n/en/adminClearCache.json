@@ -1,6 +1,0 @@
-{
-  "name": "Name",
-  "redis": "Redis",
-  "notice": "Cache Clearing",
-  "delMsg": "Do you want to clear the cache?"
-}

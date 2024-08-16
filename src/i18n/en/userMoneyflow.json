@@ -1,9 +1,0 @@
-{
-  "related_id": "Related ID",
-  "bet_no": "Bet Number",
-  "order_sn": "Transaction Number",
-  "money_before": "Balance Before",
-  "money_add": "Amount Added",
-  "money_after": "Balance After",
-  "related": "Related Order"
-}

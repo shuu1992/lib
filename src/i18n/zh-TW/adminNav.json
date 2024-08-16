@@ -1,9 +1,0 @@
-{
-  "sysLevel": "系統級別",
-  "pname": "上層",
-  "icon": "圖示",
-  "route": "權限代碼",
-  "sort": "排序",
-  "url": "Url路徑",
-  "action_log": "操作日誌"
-}

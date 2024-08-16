@@ -8,6 +8,16 @@ export default function useLocalStorage<ValueType>(key: string, defaultValue: Va
     return storedValue === null ? defaultValue : JSON.parse(storedValue);
   });
 
+  //conditionally set the default value in localStorage
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedValue = localStorage.getItem(key);
+      if (!storedValue) {
+        localStorage.setItem(key, JSON.stringify(defaultValue));
+      }
+    }
+  }, []);
+
   useEffect(() => {
     const listener = (e: StorageEvent) => {
       if (typeof window !== 'undefined' && e.storageArea === localStorage && e.key === key) {
