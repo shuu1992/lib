@@ -9,7 +9,7 @@ import * as path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), libInjectCss(), dts({ include: ['lib'] })],
+  plugins: [react()],
   build: {
     copyPublicDir: false,
     lib: {

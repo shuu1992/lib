@@ -15,7 +15,8 @@ import dayjs, { Dayjs } from 'dayjs';
 import 'dayjs/locale/zh-tw';
 import 'dayjs/locale/en';
 import 'dayjs/locale/vi';
-import ThemeCustomization from '@themes/index';
+
+import { AppThemeProvider } from '@contexts/ThemeContext';
 
 export function SearchDateTimeRangePicker({
   showShortcutsItems = true,
@@ -170,7 +171,7 @@ export function SearchDateTimeRangePicker({
   }, [startValue, endValue, handleEndChange]);
 
   return (
-    <ThemeCustomization>
+    <AppThemeProvider>
       <FormControl fullWidth>
         <LocalizationProvider
           dateAdapter={AdapterDayjs}
@@ -204,6 +205,6 @@ export function SearchDateTimeRangePicker({
           </Grid>
         )}
       </FormControl>
-    </ThemeCustomization>
+    </AppThemeProvider>
   );
 }
