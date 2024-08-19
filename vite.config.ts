@@ -17,7 +17,13 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: ['react', 'react/jsx-runtime', '@themes'],
+      external: [
+        'react',
+        'react/jsx-runtime',
+        '@mui/material/styles', // Externalize MUI theme-related packages
+        '@mui/system',
+        '@mui/styles',
+      ],
       input: Object.fromEntries(
         // https://rollupjs.org/configuration-options/#input
         glob.sync('lib/**/*.{ts,tsx}').map((file) => [
