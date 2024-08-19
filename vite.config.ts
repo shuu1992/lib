@@ -9,7 +9,7 @@ import * as path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), dts()],
   build: {
     copyPublicDir: false,
     lib: {
@@ -20,6 +20,7 @@ export default defineConfig({
       external: [
         'react',
         'react/jsx-runtime',
+        '@mui/material',
         '@mui/material/styles', // Externalize MUI theme-related packages
         '@mui/system',
         '@mui/styles',
